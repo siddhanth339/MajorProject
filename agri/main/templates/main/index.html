@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+    <form action = "{% url 'result' %}">
+        N: <input type = "text" required name = "N"><br><br>
+        P: <input type = "text" required name = "P"><br><br>
+        K: <input type = "text" required name = "K"><br><br>
+        T: <input type = "text" required name = "T"><br><br>
+        Humidity: <input type = "text" required name = "Humidity"><br><br>
+        pH: <input type = "text" required name = "pH"><br><br>
+        Rainfall: <input type = "text" required name = "Rainfall"><br><br>
+        <input type="submit" value = "submit">
+    </form>
+</body>
+</html>
