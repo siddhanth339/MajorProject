@@ -7,7 +7,13 @@
     <title>Result</title>
 </head>
 <body>
-    This is result page:
-    Predicted value: {{ans}}
+    Predicted value: {{ans}}<br><br>
+    Top 5 crops grown in your state:<br>
+    {% for record in res %}
+        <li>{{record.State}} {{record.Crop}} {{record.SuccessRate}}</li>
+    {% endfor %}
+    <br><br>
+    Weather at your place:<br>
+    {{weatherData}}
 </body>
 </html>
