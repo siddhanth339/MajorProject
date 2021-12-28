@@ -50,5 +50,22 @@ def result(request):
 
     # get top 5 successful crops of given state
     res = Success.objects.filter(State=state).order_by('-SuccessRate')[:5]
+    temp = weatherData['main']['temp']
+    temp = round(temp-273.15, 2)
+    return render(request, "main/result.html", {"ans":ans[0], "res": res, "state": weatherData['name'], "temp": temp, "wind": weatherData["wind"]["speed"], "weatherData": weatherData})
 
-    return render(request, "main/result.html", {"ans":ans, "res": res, "weatherData": weatherData})
+"""
+Sample result returned by openweathermap API
+{'coord': {'lon': 78.5, 'lat': 23.5}, 
+'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}],
+ 'base': 'stations',
+  'main': {'temp': 287.13, 'feels_like': 285.97, 'temp_min': 287.13, 'temp_max': 287.13, 'pressure': 1016, 'humidity': 53, 'sea_level': 1016, 'grnd_level': 948},
+   'visibility': 10000,
+    'wind': {'speed': 4.17, 'deg': 85, 'gust': 9.1}, 
+    'clouds': {'all': 86}, 'dt': 1640642177, 
+    'sys': {'country': 'IN', 'sunrise': 1640654790, 'sunset': 1640693294}, 
+    'timezone': 19800, 
+    'id': 1264542, 
+    'name': 'Madhya Pradesh',
+     'cod': 200}
+"""
