@@ -31,8 +31,14 @@
   <!-- responsive style -->
   <link href="{% static 'main/css/responsive.css' %}" rel="stylesheet" />
 </head>
-
+<style>
+  #google_element
+  {
+    float: right;
+  }
+</style>
 <body>
+  <div id="google_element"></div>
   <div class="hero_area">
     <!-- header section -->
     <header class="header_section">
@@ -88,11 +94,12 @@
               <span>HealthyHarvest</span>
             </a>
           </div>
+          <!--
           <div style="float:right; padding: 10px; margin-right: 20px;" class="user_option">
             <a href="" class="user_option">
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
-          </div>
+          </div>-->
       </div>
       
       
@@ -299,7 +306,7 @@
     </div>
   </section>
 
-  <!-- end we do section -->
+  <!-- end crops section -->
 
   <!-- Cropping seasons section -->
 
@@ -546,7 +553,13 @@
   <script src="{% static 'main/js/bootstrap.js' %}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="{% static 'main/js/custom.js' %}"></script>
-
+  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <script>
+    function loadGoogleTranslate(){
+      new google.translate.TranslateElement("google_element");
+    }
+  </script>
+  
 </body>
 
 </html>

@@ -7,7 +7,7 @@ from .models import Success
 
 # Success model is a model having successful crops of a given state
 # load data from csv file and store it in database
-model = model = joblib.load('savedModel.sav')
+model = joblib.load('savedModel.sav')
 def load(request):
     records = Success.objects.all()
     records.delete()
