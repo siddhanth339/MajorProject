@@ -74,6 +74,9 @@
             <a class="" href="#cptool">
               Crop Predictor
             </a>
+            <a class="" href="#mandi">
+              Mandi Prices
+            </a>
             <a class="" href="#contactus">
               Contact Us
             </a>
@@ -94,12 +97,6 @@
               <span>HealthyHarvest</span>
             </a>
           </div>
-          <!--
-          <div style="float:right; padding: 10px; margin-right: 20px;" class="user_option">
-            <a href="" class="user_option">
-              <i class="fa fa-user" aria-hidden="true"></i>
-            </a>
-          </div>-->
       </div>
       
       
@@ -115,8 +112,14 @@
                 <a href="#about" class="btn-1">
                   About
                 </a>
-                <a href="#cptool" class="btn-2">
+                <a href="{% url 'schemes' %}" class="btn-2">
+                  Govt schemes
+                </a> 
+                <a href="#cptool" class="btn-1">
                   Crop<br>Predictor
+                </a>
+                <a href="#mandi" class="btn-2">
+                  Mandi Prices
                 </a>
                 <a href="#contactus" class="btn-1">
                   Contact us
@@ -458,6 +461,147 @@
 
   <!-- end tool section -->
 
+    <!-- Mandi section -->
+
+    <section class="blog_section layout_padding section_pr" id="mandi">
+      <div class="container">
+        <div class="heading_container">
+          <h2>Mandi prices</h2>
+        </div>
+        <!--
+        <div class="form_container">
+          <form action="{% url 'prices' %}" id="mandiForm">
+            <div class="form-group">
+              <label for="state">Select a state:</label>
+              <select class="form-control" id="state">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="state">Select a crop:</label>
+              <select class="form-control" id="state">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              Minimum price: {{minPrice}}
+            </div>
+            <div class="form-group">
+              Maximum price: {{maxPrice}}
+            </div>
+          </form>
+        </div>
+        <div>
+          <button class = "btn btn-primary" type="submit" form="mandiForm" value="Submit">
+            Submit
+          </button>
+        </div>
+        -->
+        <div class="form_container">
+          <form action="{% url 'prices' %}" id="mandiForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="stateOfMandi">Select a State:</label>
+                  <select name="stateOfMandi" id="stateOfMandi">
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="crop">Select a Crop:</label>
+                  <select name="crop" id="crop">
+                    <option value="Wheat">Wheat</option>
+                    <option value="Rice">Rice</option>
+                    <option value="Millets">Millets</option>
+                    <option value="Green Gram (Moong)(Whole)">Green Gram (Moong)(Whole)</option>
+                    <option value="Sugarcane">Sugarcane</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Guar">Guar</option>
+                    <option value="Grapes">Grapes</option>
+                    <option value="Ginger(Dry)">Ginger(Dry)</option>
+                    <option value="Beetroot">Beetroot</option>
+                    <option value="Bottle gourd">Bottle gourd</option>
+                    <option value="Mango">Mango</option>
+                    <option value="Lemon">Lemon</option>
+                    <option value="Kabuli Chana(Chickpeas-White)">Kabuli Chana(Chickpeas-White)</option>
+                    <option value="Mint(Pudina)">Mint(Pudina)</option>
+                    <option value="Coriander(Leaves)">Coriander(Leaves)</option>
+                    <option value="Cotton">Cotton</option>
+                    <option value="Jowar(Sorghum)">Jowar(Sorghum)</option>
+                    <option value="Gur(Jaggery)">Gur(Jaggery)</option>
+                    <option value="Methi(Leaves)">Methi(Leaves)</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Cotton">Cotton</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <p>State: {{state}}</p>
+                </div>
+                <div class="form-group">
+                  <p>Crop: {{crop}}</p>
+                </div>
+                <div class="form-group">
+                  Minimum price(per quintal): Rs.{{minPrice}}
+                </div>
+                <div class="form-group">
+                  Maximum price(per quintal): Rs.{{maxPrice}}
+                </div>
+              </div>
+            </div>
+          </form> 
+        </div> 
+        <div>
+          <button class = "btn btn-primary" type="submit" form="mandiForm" value="Submit">
+            Submit
+          </button>
+        </div>       
+              
+          
+      </div>
+      </div>
+    </section>
+  
+    <!-- end mandi section -->
+
   <!-- contact section -->
 
   <section class="info_section layout_padding section_pl" id="contactus">
@@ -529,6 +673,9 @@
               </a>
               <a href="#cptool">
                 Crop Predictor
+              </a>
+              <a href="#mandi">
+                Check mandi prices
               </a>
             </div>
           </div>

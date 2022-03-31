@@ -29,6 +29,9 @@ def load(request):
 def index(request):
     return render(request, "main/index.html")
 
+def schemes(request):
+    return render(request, "main/schemes.html")
+
 # Crop prediction and sending result to result.html
 def result(request):
     l = []
@@ -69,3 +72,43 @@ Sample result returned by openweathermap API
     'name': 'Madhya Pradesh',
      'cod': 200}
 """
+
+# mandi data
+def prices(request):
+    pricesData = requests.get('https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f7324fe93fcb45b046a2600a7adc2cc8&format=json&offset=0&limit=1000')
+    pricesData = pricesData.json()
+    recs = pricesData['records']
+    minPrice = "N/A"
+    maxPrice = "N/A"
+    state = request.GET['stateOfMandi']
+    crop = request.GET['crop']
+    for record in recs:
+        if record["state"] == state and record["commodity"] == crop :
+            minPrice = record["min_price"]
+            maxPrice = record["max_price"]
+            break
+
+    return render(request, "main/index.html", {"state": state, "crop": crop, "minPrice": minPrice, "maxPrice": maxPrice})
+
+def temp(request):
+    pricesData = requests.get('https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f7324fe93fcb45b046a2600a7adc2cc8&format=json&offset=0&limit=1000')
+    """ 
+    pricesData = pricesData.json()
+    recs = pricesData['records']
+    minPrice = "N/A"
+    maxPrice = "N/A"
+    state = "Andhra Pradesh"
+    crop = "Gur(Jaggery)"
+    states = set()
+    crop = set()
+    for record in recs:
+        states.add(record["state"])
+        crop.add(record["commodity"]) 
+        if record["state"] == state and record["commodity"] == crop :
+            minPrice = record["min_price"]
+            maxPrice = record["max_price"]
+            break  
+    """
+
+    return HttpResponse(pricesData,content_type="application/json")
+    
